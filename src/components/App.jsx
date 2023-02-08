@@ -15,6 +15,7 @@ export class App extends Component {
     page: 1,
     isLoading: false,
     openModal: false,
+    loadmoreBtn: false,
   };
 
   onClickLoadMore = () => {
@@ -54,10 +55,11 @@ export class App extends Component {
       if (response.length < 1) {
         Notify.failure('Not found');
       }
-      {
-        response.length >= 12
-          ? this.setState({ loadmoreBtn: true })
-          : this.setState({ loadmoreBtn: false });
+      if (response.length < 12) {
+        this.setState({ loadmoreBtn: false });
+      }
+      if (response.length === 12) {
+        this.setState({ loadmoreBtn: true });
       }
     } finally {
       this.setState({ isLoading: false });
