@@ -42,6 +42,7 @@ export class App extends Component {
       images: [],
     });
     this.fetchGallery(evt.target.search.value, this.state.page);
+    evt.target.reset();
   };
 
   async fetchGallery(search, page) {
