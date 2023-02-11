@@ -40,8 +40,9 @@ export class App extends Component {
       search: evt.target.search.value.trim().toLowerCase(),
       isLoading: true,
       images: [],
+      page: 1,
     });
-    this.fetchGallery(evt.target.search.value, this.state.page);
+    this.fetchGallery(evt.target.search.value);
     evt.target.reset();
   };
 
